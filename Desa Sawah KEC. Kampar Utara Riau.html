@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Resmi Desa Sawah - Kecamatan Kampar Utara</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .active-nav { @apply bg-green-900 text-white rounded-md; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGASI -->
+    <header class="bg-green-800 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchSection('beranda')">
+                <div class="bg-white p-2 rounded-full text-green-800 font-bold text-xl w-10 h-10 flex items-center justify-center shadow">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight uppercase tracking-wider">Desa Sawah</h1>
+                    <p class="text-xs text-green-200">Kec. Kampar Utara, Kab. Kampar</p>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-2 text-sm font-semibold">
+                <button id="nav-beranda" onclick="switchSection('beranda')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md bg-green-900">Beranda</button>
+                <button id="nav-profil" onclick="switchSection('profil')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md">Profil Desa</button>
+                <button id="nav-pemerintahan" onclick="switchSection('pemerintahan')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md">Pemerintahan</button>
+                <button id="nav-transparansi" onclick="switchSection('transparansi')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md">Transparansi & JDIH</button>
+                <button id="nav-layanan" onclick="switchSection('layanan')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md">Layanan Mandiri</button>
+                <button id="nav-kontak" onclick="switchSection('kontak')" class="px-3 py-2 text-green-100 hover:bg-green-700 hover:text-white transition rounded-md">Fasilitas & Kontak</button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 border-t border-green-600 px-4 py-2 space-y-1">
+            <button onclick="switchSection('beranda')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Beranda</button>
+            <button onclick="switchSection('profil')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Profil Desa</button>
+            <button onclick="switchSection('pemerintahan')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Pemerintahan</button>
+            <button onclick="switchSection('transparansi')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Transparansi & JDIH</button>
+            <button onclick="switchSection('layanan')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Layanan Mandiri</button>
+            <button onclick="switchSection('kontak')" class="block w-full text-left py-2 px-3 rounded hover:bg-green-600">Fasilitas & Kontak</button>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTENT -->
+    <main class="flex-grow container mx-auto px-4 py-6">
+
+        <!-- SECTION: BERANDA -->
+        <section id="sec-beranda" class="space-y-8 block">
+            <!-- Hero Jumbotron -->
+            <div class="relative bg-gradient-to-r from-green-800 to-emerald-700 text-white rounded-2xl p-8 md:p-12 shadow-lg overflow-hidden">
+                <div class="relative z-10 md:w-2/3 space-y-4">
+                    <span class="bg-emerald-600 text-xs uppercase font-bold px-3 py-1 rounded-full tracking-wide">Ibu Kota Kecamatan</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Selamat Datang di Portal Resmi Desa Sawah</h2>
+                    <p class="text-green-100 text-base md:text-lg">Menghargai tradisi luhur Mak Sowa, menjaga eksistensi adat Ocu, serta menghadirkan transparansi tata kelola dan efisiensi pelayanan publik digital.</p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button onclick="switchSection('layanan')" class="bg-white text-green-800 font-bold px-5 py-2.5 rounded-lg shadow hover:bg-green-50 transition text-sm"><i class="fa-solid fa-file-invoice mr-2"></i> Ajukan Surat Daring</button>
+                        <button onclick="switchSection('profil')" class="bg-green-900 text-white font-semibold px-5 py-2.5 rounded-lg border border-green-600 hover:bg-green-950 transition text-sm">Pelajari Sejarah</button>
+                    </div>
+                </div>
+                <div class="absolute right-0 bottom-0 top-0 opacity-10 w-1/3 hidden md:flex items-center justify-center text-[12rem]">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+            </div>
+
+            <!-- Panel Statistik Cepat -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                    <div class="p-3 bg-green-100 text-green-700 rounded-lg text-2xl w-12 h-12 flex items-center justify-center shadow-inner"><i class="fa-solid fa-users"></i></div>
+                    <div><p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Total Penduduk</p><h4 class="text-2xl font-bold text-gray-800">3.450 Jiwa</h4></div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                    <div class="p-3 bg-blue-100 text-blue-700 rounded-lg text-2xl w-12 h-12 flex items-center justify-center shadow-inner"><i class="fa-solid fa-folder-open"></i></div>
+                    <div><p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Kepala Keluarga</p><h4 class="text-2xl font-bold text-gray-800">868 KK</h4></div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-lg text-2xl w-12 h-12 flex items-center justify-center shadow-inner"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div><p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Luas Wilayah</p><h4 class="text-2xl font-bold text-gray-800">7.984 Ha</h4></div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+                    <div class="p-3 bg-purple-100 text-purple-700 rounded-lg text-2xl w-12 h-12 flex items-center justify-center shadow-inner"><i class="fa-solid fa-user-tie"></i></div>
+                    <div><p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Kepala Desa</p><h4 class="text-sm font-bold text-gray-800 truncate">Edi Wirnata</h4></div>
+                </div>
+            </div>
+
+            <!-- Sambutan & Ciri Khas -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Sambutan Kades -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div class="space-y-4 text-center lg:text-left">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto lg:mx-0 border-4 border-green-100 flex items-center justify-center text-gray-400 text-4xl shadow-inner">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Edi Wirnata</h3>
+                            <p class="text-xs text-green-700 font-semibold">Kepala Desa Sawah</p>
+                        </div>
+                        <p class="text-sm text-gray-600 italic leading-relaxed">"Melalui inovasi portal digital ini, kami berupaya mendekatkan pelayanan administrasi ke genggaman warga, sekaligus membuka transparansi tata anggaran dan produk hukum desa demi kemajuan bersama."</p>
+                    </div>
+                    <div class="border-t border-gray-100 pt-4 mt-4 text-xs text-gray-400">Dilantik resmi sejak: 26 Februari 2020</div>
+                </div>
+
+                <!-- Ciri Khas (Pesona Ocu) -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                    <h3 class="text-xl font-bold text-gray-800 border-b pb-2 flex items-center"><i class="fa-solid fa-star text-amber-500 mr-2"></i> Ciri Khas & Pesona Ocu</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-green-600">
+                            <h4 class="font-bold text-sm text-green-800"><i class="fa-solid fa-wheat-awn mr-1"></i> Identitas Agrikultur</h4>
+                            <p class="text-xs text-gray-600 mt-1">Representasi sejarah ketahanan pangan. Komitmen penuh dalam merawat dan mempertahankan 180 hektare persawahan aktif.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-600">
+                            <h4 class="font-bold text-sm text-blue-800"><i class="fa-solid fa-circle-nodes mr-1"></i> Hub Kampar Utara</h4>
+                            <p class="text-xs text-gray-600 mt-1">Berperan vital sebagai Ibu Kota Kecamatan. Menjadi pusat pelayanan rujukan utama melalui UPT Puskesmas Sawah.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-amber-600">
+                            <h4 class="font-bold text-sm text-amber-800"><i class="fa-solid fa-water mr-1"></i> Nadi Sungai Kampar</h4>
+                            <p class="text-xs text-gray-600 mt-1">Dilewati salah satu sungai terpanjang. Bertransformasi pesat sejak jembatan permanen menggantikan transportasi air pada 2004.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-purple-600">
+                            <h4 class="font-bold text-sm text-purple-800"><i class="fa-solid fa-mosque mr-1"></i> Budaya & Religiusitas</h4>
+                            <p class="text-xs text-gray-600 mt-1">Masyarakat kental dengan adat istiadat Ocu, dialek Kampar, tradisi Balimau Kasai, serta nilai luhur Serambi Mekkah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PROFIL DESA -->
+        <section id="sec-profil" class="space-y-6 hidden">
+            <!-- Tab Sub-Menu Profil -->
+            <div class="flex border-b border-gray-200 overflow-x-auto space-x-2">
+                <button onclick="switchProfileTab('sejarah')" id="tab-sejarah" class="py-2.5 px-4 text-sm font-semibold border-b-2 border-green-700 text-green-700 focus:outline-none whitespace-nowrap">Sejarah Desa</button>
+                <button onclick="switchProfileTab('geografis')" id="tab-geografis" class="py-2.5 px-4 text-sm font-semibold text-gray-500 hover:text-green-700 border-b-2 border-transparent focus:outline-none whitespace-nowrap">Geografis & Orbitasi</button>
+                <button onclick="switchProfileTab('demografi')" id="tab-demografi" class="py-2.5 px-4 text-sm font-semibold text-gray-500 hover:text-green-700 border-b-2 border-transparent focus:outline-none whitespace-nowrap">Demografi & Lahan</button>
+            </div>
+
+            <!-- Sub-Tab Content: Sejarah -->
+            <div id="sub-sejarah" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-4 block">
+                <h3 class="text-xl font-bold text-green-800">Asal-Usul Nama & Legenda Mak Sowa</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Menurut kisah para Tokoh Masyarakat dan Tokoh Adat, nama Desa Sawah berakar kuat dari nama <span class="font-semibold text-gray-800">"Sowa"</span>. Beliau adalah seorang wanita mandiri dari kawasan Tanjung Berulak yang berlokasi persis di seberang sungai Desa Sawah sekarang. Konon, Mak Sowa mengelola lahan pertanian dan perkebunan yang luar biasa luas di bentang daratan ini.
+                </p>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Setiap hari Mak Sowa menyeberang untuk bercocok tanam hingga akhirnya usaha kerasnya membuahkan hasil melimpah ruah berupa padi, sayuran, dan buah-buahan segar. Hal tersebut memicu kedatangan banyak masyarakat luar untuk bermukim. Seiring meluasnya aktivitas tani dan terbentuknya Dusun Sawah yang berada tepat di tengah-tengah pemukiman dusun lainnya, seluruh tetua adat sepakat menyatukan wilayah tersebut menjadi entitas administratif bernama <span class="font-semibold text-gray-800">Desa Sawah</span>.
+                </p>
+                <div class="border-t pt-4">
+                    <h4 class="font-bold text-gray-700 mb-3"><i class="fa-solid fa-timeline text-green-700 mr-2"></i>Kronologi Kronik Kepemimpinan Desa</h4>
+                    <div class="relative border-l-2 border-green-200 ml-3 space-y-5">
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">1973</span><p class="text-xs text-gray-600">Pemekaran dari Kenegrian Air Tiris. Dipimpin pertama kali oleh Wali Muda, <strong>Bpk. M. Nasir</strong>.</p></div>
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">1990 - 1998</span><p class="text-xs text-gray-600">Pemerintahan dipimpin oleh Wali Desa kedua, <strong>Bpk. Muzbar</strong>.</p></div>
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">1998 - 1999</span><p class="text-xs text-gray-600">Masa transisi di bawah kepemimpinan PJS Wali Desa, <strong>Ibu Maharani</strong>.</p></div>
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">1999 - 2005</span><p class="text-xs text-gray-600">Pemilihan Kades definitif pertama dimenangkan oleh <strong>Bpk. Syukri</strong>. Di akhir masa jabatan beliau, seiring laju pertumbuhan penduduk, wilayah 7 Dusun dimekarkan menjadi dua desa mandiri: <strong>Desa Sawah (Induk)</strong> dan <strong>Desa Sungai Jalau (Pemekaran)</strong>.</p></div>
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">2005 - 2019</span><p class="text-xs text-gray-600">Kepemimpinan dilanjutkan secara berturut-turut oleh <strong>Bpk. Khairul</strong>, dilanjutkan Pjs Kepala Desa <strong>Bpk. Nur Hidayat</strong>, dan dilanjutkan oleh <strong>Bpk. Supardi</strong> (2014-2019).</p></div>
+                        <div class="ml-4 relative"><span class="absolute -left-6 bg-green-700 w-3 h-3 rounded-full border-2 border-white top-1"></span><span class="text-xs font-bold text-green-800">2020 - Sekarang</span><p class="text-xs text-gray-600">Pilkades demokratis dimenangkan oleh <strong>Bpk. Edi Wirnata</strong>, dilantik resmi tanggal 26 Februari 2020.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Tab Content: Geografis -->
+            <div id="sub-geografis" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-6 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-green-800"><i class="fa-solid fa-arrows-to-dot mr-2"></i> Batas Batasan Wilayah</h3>
+                        <ul class="divide-y divide-gray-100 text-sm">
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Sebelah Utara</span><span class="font-semibold text-gray-800">Desa Kayu Aro</span></li>
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Sebelah Selatan</span><span class="font-semibold text-gray-800">Desa Tanjung Berulak</span></li>
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Sebelah Barat</span><span class="font-semibold text-gray-800">Desa Sungai Jalau</span></li>
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Sebelah Timur</span><span class="font-semibold text-gray-800">Desa Naga Beralih</span></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-green-800"><i class="fa-solid fa-car-side mr-2"></i> Aksesibilitas & Orbitasi</h3>
+                        <ul class="divide-y divide-gray-100 text-sm">
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Jarak ke Ibu Kota Kecamatan</span><span class="font-semibold text-gray-800">± 5 Km (± 10 Menit)</span></li>
+                            <li class="py-2 flex justify-between"><span class="text-gray-500 font-medium">Jarak ke Ibu Kota Kabupaten</span><span class="font-semibold text-gray-800">± 20 Km (± 30 Menit)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg text-sm text-blue-900 border border-blue-100">
+                    <h4 class="font-bold flex items-center mb-1"><i class="fa-solid fa-bridge-water mr-2"></i> Transformasi Geopolitik Sungai Kampar</h4>
+                    <p class="leading-relaxed">Desa Sawah dibelah oleh aliran Sungai Kampar. Sebelum momentum tahun 2004, alur air ini adalah sarana logistik utama. Kini, interkoneksi darat sepenuhnya terjamin berkat keberadaan infrastruktur jembatan permanen lintas Air Tiris.</p>
+                </div>
+            </div>
+
+            <!-- Sub-Tab Content: Demografi -->
+            <div id="sub-demografi" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-6 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-green-800 mb-3"><i class="fa-solid fa-chart-pie mr-2"></i> Alokasi Pemanfaatan Lahan</h3>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-tree text-green-600 mr-2"></i>Kawasan Perhutanan</span><span class="font-bold">3.100 Ha</span></div>
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-wheat-awn text-amber-600 mr-2"></i>Pertanian Sawah</span><span class="font-bold">180 Ha</span></div>
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-house-chimney text-blue-600 mr-2"></i>Pemukiman Warga</span><span class="font-bold">140 Ha</span></div>
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-mountain-sun text-yellow-600 mr-2"></i>Ladang / Tegalan</span><span class="font-bold">130 Ha</span></div>
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-road text-gray-600 mr-2"></i>Jalan Desa</span><span class="font-bold">20 KM</span></div>
+                            <div class="flex justify-between items-center bg-gray-50 p-2 rounded"><span><i class="fa-solid fa-water-ladders text-teal-600 mr-2"></i>Kawasan Rawa-rawa</span><span class="font-bold">10 Ha</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-green-800 mb-3"><i class="fa-solid fa-venus-mars mr-2"></i>Statistik Kependudukan Dusun</h3>
+                        <div class="p-4 bg-gray-50 rounded-xl space-y-4 text-sm">
+                            <div class="flex justify-between border-b pb-2"><span>Penduduk Laki-laki</span><span class="font-bold">1.705 Jiwa</span></div>
+                            <div class="flex justify-between border-b pb-2"><span>Penduduk Perempuan</span><span class="font-bold">1.745 Jiwa</span></div>
+                            <div class="flex justify-between text-green-800 font-bold text-base"><span>Total Seluruh Jiwa</span><span>3.450 Jiwa</span></div>
+                        </div>
+                        <div class="mt-4 p-3 bg-green-50 text-green-800 text-xs rounded-lg font-semibold flex items-center shadow-inner">
+                            <i class="fa-solid fa-circle-info mr-2 text-base"></i> Wilayah terbagi ke dalam 4 Dusun: Dusun Sawah, Dusun Tanjung, Dusun Pulau Tengah, dan Dusun Sangkar Puyuh.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PEMERINTAHAN -->
+        <section id="sec-pemerintahan" class="space-y-6 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-green-800 mb-2 flex items-center"><i class="fa-solid fa-sitemap mr-2"></i> Struktur Organisasi Aparatur Pemerintah Desa</h2>
+                <p class="text-xs text-gray-500 mb-4">Daftar legal aparatur aktif pelaksana pelayanan administrasi kewilayahan Desa Sawah.</p>
+                
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="w-full border-collapse text-left text-sm text-gray-600">
+                        <thead class="bg-green-800 text-white text-xs uppercase tracking-wider">
+                            <tr>
+                                <th class="p-3 font-semibold">No</th>
+                                <th class="p-3 font-semibold">Nama Perangkat Desa</th>
+                                <th class="p-3 font-semibold">Jabatan Kerja Struktur</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-700">
+                            <tr class="hover:bg-gray-50 bg-green-50/50 font-medium">
+                                <td class="p-3 text-green-800 font-bold">1</td><td class="p-3">Edi Wirnata</td><td class="p-3 text-green-700 font-semibold"><span class="bg-green-100 px-2 py-0.5 rounded text-xs">Kepala Desa</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">2</td><td class="p-3">Suherdi, S.Sy</td><td class="p-3">Sekretaris Desa</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">3</td><td class="p-3">Khairul Halim, S.Sos</td><td class="p-3">Kepala Urusan Umum</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">4</td><td class="p-3">Rosnidah</td><td class="p-3">Kepala Urusan Perencanaan</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">5</td><td class="p-3">Syahrina, S.Pd</td><td class="p-3">Kepala Urusan Keuangan</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">6</td><td class="p-3">M.Syahrizal, S.Pd</td><td class="p-3">Kepala Seksi Pemerintahan</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">7</td><td class="p-3">Fitri Yati</td><td class="p-3 text-blue-700 font-medium">Kepala Seksi Pelayanan (Loket)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">8</td><td class="p-3">Nuratika Ramadani</td><td class="p-3">Kepala Seksi Kesejahteraan</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">9</td><td class="p-3">Ahzar, SH</td><td class="p-3 text-amber-800">Kepala Dusun Sawah</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">10</td><td class="p-3">Budi Yanto</td><td class="p-3 text-amber-800">Kepala Dusun Tanjung</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">11</td><td class="p-3">Edi. M. Syahruddin</td><td class="p-3 text-amber-800">Kepala Dusun Pulau Tengah</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3">12</td><td class="p-3">Nur Ikhwan, S.E</td><td class="p-3 text-amber-800">Kepala Dusun Sangkar Puyuh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TRANSPARANSI & JDIH -->
+        <section id="sec-transparansi" class="space-y-6 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-3 gap-3">
+                    <div>
+                        <h2 class="text-2xl font-bold text-green-800 flex items-center"><i class="fa-solid fa-gavel mr-2"></i> JDIH & Regulasi Desa Sawah</h2>
+                        <p class="text-xs text-gray-500">Transparansi produk hukum desa beserta nota konsideran yang sah.</p>
+                    </div>
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-64">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa-solid fa-magnifying-glass text-xs"></i></span>
+                        <input type="text" id="jdih-search" onkeyup="filterJDIH()" placeholder="Cari Perdes / Perkades..." class="w-full pl-9 pr-4 py-1.5 text-xs bg-gray-50 border rounded-lg focus:outline-none focus:ring-1 focus:ring-green-700">
+                    </div>
+                </div>
+
+                <!-- JDIH Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border" id="jdih-table">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700 uppercase font-semibold">
+                                <th class="p-2 border">Kode No</th>
+                                <th class="p-2 border">Tentang Produk Hukum</th>
+                                <th class="p-2 border">Konsideran Atas</th>
+                                <th class="p-2 border text-center">Berkas</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="jdih-row hover:bg-gray-50">
+                                <td class="p-2 border font-mono font-bold text-green-800">PERDES-02/2025</td>
+                                <td class="p-2 border font-medium">Rencana Pembangunan Jangka Menengah Desa (RPJMDes)</td>
+                                <td class="p-2 border text-gray-500 italic">UU No. 3/2024 tentang Desa</td>
+                                <td class="p-2 border text-center"><button onclick="mockDownload('PERDES-02/2025')" class="bg-green-700 text-white px-2 py-1 rounded text-[10px] hover:bg-green-800"><i class="fa-solid fa-download"></i> PDF</button></td>
+                            </tr>
+                            <tr class="jdih-row hover:bg-gray-50">
+                                <td class="p-2 border font-mono font-bold text-green-800">PERKADES-01/2026</td>
+                                <td class="p-2 border font-medium">Tata Cara Penyaluran Bantuan Cadangan Pangan Padi Sawah</td>
+                                <td class="p-2 border text-gray-500 italic">Perbup Kampar No. 14/2025</td>
+                                <td class="p-2 border text-center"><button onclick="mockDownload('PERKADES-01/2026')" class="bg-green-700 text-white px-2 py-1 rounded text-[10px] hover:bg-green-800"><i class="fa-solid fa-download"></i> PDF</button></td>
+                            </tr>
+                            <tr class="jdih-row hover:bg-gray-50">
+                                <td class="p-2 border font-mono font-bold text-green-800">PERDES-04/2026</td>
+                                <td class="p-2 border font-medium">Anggaran Pendapatan dan Belanja Desa (APBDes) Tahun Anggaran 2026</td>
+                                <td class="p-2 border text-gray-500 italic">Permendagri No. 20/2018</td>
+                                <td class="p-2 border text-center"><button onclick="mockDownload('PERDES-04/2026')" class="bg-green-700 text-white px-2 py-1 rounded text-[10px] hover:bg-green-800"><i class="fa-solid fa-download"></i> PDF</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Laporan APBDes / Transparansi Kualitatif -->
+                <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-sm text-gray-800 mb-2"><i class="fa-solid fa-chart-bar text-green-700 mr-1"></i> Visualisasi Alokasi APBDes Realisasi 2026</h3>
+                    <div class="space-y-2 text-xs">
+                        <div>
+                            <div class="flex justify-between text-[11px] mb-1 font-medium"><span>Pembangunan Infrastruktur & Jalan Desa</span><span class="font-bold">45%</span></div>
+                            <div class="w-full bg-gray-200 h-2 rounded"><div class="bg-green-600 h-2 rounded" style="width: 45%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[11px] mb-1 font-medium"><span>Pemberdayaan Pertanian Padi & UMKM Ocu</span><span class="font-bold">35%</span></div>
+                            <div class="w-full bg-gray-200 h-2 rounded"><div class="bg-blue-600 h-2 rounded" style="width: 35%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[11px] mb-1 font-medium"><span>Sektor Kesehatan UPT Puskesmas & Posyandu</span><span class="font-bold">20%</span></div>
+                            <div class="w-full bg-gray-200 h-2 rounded"><div class="bg-amber-600 h-2 rounded" style="width: 20%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LAYANAN PUBLIK -->
+        <section id="sec-layanan" class="space-y-6 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold text-green-800 mb-1 flex items-center"><i class="fa-solid fa-envelope-open-text mr-2"></i> Loket Administrasi Mandiri Online</h2>
+                <p class="text-xs text-gray-500 mb-6">Pilih klasifikasi surat keperluan Anda di bawah ini untuk mengisi formulir digital langsung.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="openFormModal('Surat Keterangan Usaha (SKU)')" class="p-4 bg-gray-50 hover:bg-green-50 border border-gray-200 hover:border-green-400 rounded-xl transition shadow-sm cursor-pointer text-center space-y-2 group">
+                        <div class="text-2xl text-green-700 group-hover:scale-110 transition-transform"><i class="fa-solid fa-store"></i></div>
+                        <h4 class="font-bold text-sm text-gray-800">SKU Usaha</h4>
+                        <p class="text-[11px] text-gray-500">Bantuan modal / Kredit UMKM</p>
+                    </div>
+                    <div onclick="openFormModal('Surat Keterangan Domisili')" class="p-4 bg-gray-50 hover:bg-green-50 border border-gray-200 hover:border-green-400 rounded-xl transition shadow-sm cursor-pointer text-center space-y-2 group">
+                        <div class="text-2xl text-blue-700 group-hover:scale-110 transition-transform"><i class="fa-solid fa-id-card"></i></div>
+                        <h4 class="font-bold text-sm text-gray-800">SK Domisili</h4>
+                        <p class="text-[11px] text-gray-500">Legalitas tempat tinggal/KTP</p>
+                    </div>
+                    <div onclick="openFormModal('Surat Keterangan Tidak Mampu (SKTM)')" class="p-4 bg-gray-50 hover:bg-green-50 border border-gray-200 hover:border-green-400 rounded-xl transition shadow-sm cursor-pointer text-center space-y-2 group">
+                        <div class="text-2xl text-amber-700 group-hover:scale-110 transition-transform"><i class="fa-solid fa-hand-holding-hand"></i></div>
+                        <h4 class="font-bold text-sm text-gray-800">SKTM Sosial</h4>
+                        <p class="text-[11px] text-gray-500">Beasiswa / Keringanan Medis</p>
+                    </div>
+                    <div onclick="openFormModal('Surat Pengantar Nikah (NA)')" class="p-4 bg-gray-50 hover:bg-green-50 border border-gray-200 hover:border-green-400 rounded-xl transition shadow-sm cursor-pointer text-center space-y-2 group">
+                        <div class="text-2xl text-purple-700 group-hover:scale-110 transition-transform"><i class="fa-solid fa-heart-circle-check"></i></div>
+                        <h4 class="font-bold text-sm text-gray-800">Pengantar Nikah</h4>
+                        <p class="text-[11px] text-gray-500">Pengurusan Berkas KUA</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-amber-50 rounded-xl text-xs text-amber-900 border border-amber-200 space-y-1">
+                    <span class="font-bold flex items-center"><i class="fa-solid fa-circle-exclamation mr-1"></i> Syarat Pengambilan Berkas Fisik:</span>
+                    <p>Setelah mengisi formulir, silakan datang ke Kantor Desa untuk mengambil surat fisik yang sudah ditandatangani dengan membawa fotokopi KK dan KTP asli untuk verifikasi akhir oleh Ibu Fitri Yati (Kasi Pelayanan).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FASILITAS & KONTAK -->
+        <section id="sec-kontak" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Fasilitas Umum Stats -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                    <h3 class="text-lg font-bold text-green-800 border-b pb-2"><i class="fa-solid fa-building-shield mr-2"></i> Inventaris Sarana Desa</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>Kantor Desa/Camat</span><span class="font-bold">2 Unit</span></div>
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>UPT Puskesmas</span><span class="font-bold">1 Unit</span></div>
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>Layanan Posyandu</span><span class="font-bold">3 Unit</span></div>
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>Gedung Serba Guna</span><span class="font-bold">1 Unit</span></div>
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>Lembaga Sekolah</span><span class="font-bold">6 Unit</span></div>
+                        <div class="p-2 bg-gray-50 rounded flex justify-between"><span>Masjid/Musholla</span><span class="font-bold">13 Unit</span></div>
+                    </div>
+                    <!-- Google Maps Mock -->
+                    <div class="w-full h-40 bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-400 border text-center p-4">
+                        <i class="fa-solid fa-map-location text-3xl mb-1 text-green-700"></i>
+                        <span class="text-xs font-semibold text-gray-700">Kantor Kepala Desa Sawah</span>
+                        <p class="text-[10px] text-gray-500">Kec. Kampar Utara, Kab. Kampar, Riau</p>
+                    </div>
+                </div>
+
+                <!-- Portal Pengaduan Form -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                    <h3 class="text-lg font-bold text-green-800 border-b pb-2"><i class="fa-solid fa-bullhorn mr-2"></i> Layanan Pengaduan & Aspirasi Warga</h3>
+                    <form id="complaint-form" onsubmit="submitComplaint(event)" class="space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="space-y-1">
+                                <label class="font-semibold text-gray-600">Nama Lengkap Sesuai KTP</label>
+                                <input type="text" required class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-semibold text-gray-600">Asal Wilayah Dusun</label>
+                                <select required class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                                    <option value="Dusun Sawah">Dusun Sawah</option>
+                                    <option value="Dusun Tanjung">Dusun Tanjung</option>
+                                    <option value="Dusun Pulau Tengah">Dusun Pulau Tengah</option>
+                                    <option value="Dusun Sangkar Puyuh">Dusun Sangkar Puyuh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="font-semibold text-gray-600">Klasifikasi Kategori Laporan</label>
+                            <select required class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                                <option value="Infrastruktur Jalan / Sawah">Kerusakan Infrastruktur Fasilitas / Sawah</option>
+                                <option value="Pelayanan Aparatur">Keluhan Pelayanan Administrasi</option>
+                                <option value="Masalah Sosial Keamanan">Masalah Sosial & Kamtibmas</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="font-semibold text-gray-600">Deskripsi Uraian Keluhan</label>
+                            <textarea required rows="4" placeholder="Tuliskan keluhan atau saran Anda secara rinci di sini..." class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-700 text-white font-bold py-2 rounded shadow hover:bg-green-800 transition">Kirim Laporan Pengaduan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FORM MODAL SIMULATION -->
+    <div id="form-modal" class="fixed inset-0 bg-black/50 hidden z-50 items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-xl p-6 w-full max-w-md space-y-4 text-xs">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="text-base font-bold text-green-800" id="modal-title">Formulir Pengajuan</h3>
+                <button onclick="closeFormModal()" class="text-gray-400 text-lg hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="submitEForm(event)" class="space-y-3">
+                <div class="space-y-1">
+                    <label class="font-semibold text-gray-600">NIK (Nomor Induk Kependudukan)</label>
+                    <input type="text" required maxlength="16" placeholder="16 Digit NIK KTP Anda" class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                </div>
+                <div class="space-y-1">
+                    <label class="font-semibold text-gray-600">Nama Pemohon</label>
+                    <input type="text" required class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                </div>
+                <div class="space-y-1">
+                    <label class="font-semibold text-gray-600">Alamat Lengkap & Dusun</label>
+                    <input type="text" required placeholder="Contoh: RT 02 / RW 01 Dusun Sawah" class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50">
+                </div>
+                <div class="space-y-1">
+                    <label class="font-semibold text-gray-600">Keterangan / Alasan Pengajuan</label>
+                    <textarea required rows="2" placeholder="Tuliskan tujuan pembuatan surat..." class="w-full border p-2 rounded focus:outline-green-700 bg-gray-50"></textarea>
+                </div>
+                <div class="flex justify-end space-x-2 pt-2 border-t">
+                    <button type="button" onclick="closeFormModal()" class="px-4 py-2 border rounded text-gray-600 hover:bg-gray-50">Batal</button>
+                    <button type="submit" class="px-4 py-2 bg-green-700 text-white font-bold rounded hover:bg-green-800 shadow">Kirim Berkas</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-gray-400 text-xs py-6 mt-8 border-t-4 border-green-700">
+        <div class="container mx-auto px-4 text-center space-y-2">
+            <p class="font-bold text-gray-300">Pemerintah Desa Sawah Kecamatan Kampar Utara</p>
+            <p>&copy; 2026 Portal Resmi Aplikasi Desa Mandiri. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
+    <script>
+        // Section Navigation Switcher
+        function switchSection(sectionId) {
+            // Hide all main app sections
+            document.querySelectorAll('main > section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('block');
+            });
+            // Show selected section
+            const targetSection = document.getElementById('sec-' + sectionId);
+            targetSection.classList.remove('hidden');
+            targetSection.classList.add('block');
+
+            // Update Desktop Nav Styling
+            document.querySelectorAll('nav > button').forEach(btn => {
+                btn.classList.remove('bg-green-900', 'text-white');
+            });
+            document.getElementById('nav-' + sectionId).classList.add('bg-green-900', 'text-white');
+
+            // Close Mobile Menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Mobile Navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Profile Tab Switcher
+        function switchProfileTab(tabName) {
+            // Hide all sub-tabs
+            ['sejarah', 'geografis', 'demografi'].forEach(name => {
+                document.getElementById('sub-' + name).classList.add('hidden');
+                document.getElementById('sub-' + name).classList.remove('block');
+                
+                document.getElementById('tab-' + name).classList.remove('border-green-700', 'text-green-700');
+                document.getElementById('tab-' + name).classList.add('text-gray-500', 'border-transparent');
+            });
+
+            // Show active sub-tab
+            document.getElementById('sub-' + tabName).classList.remove('hidden');
+            document.getElementById('sub-' + tabName).classList.add('block');
+            document.getElementById('tab-' + tabName).classList.add('border-green-700', 'text-green-700');
+        }
+
+        // JDIH Search Filtering Logic
+        function filterJDIH() {
+            const input = document.getElementById('jdih-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.jdih-row');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if(text.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Mock Document Downloader
+        function mockDownload(docCode) {
+            alert("Memulai pengunduhan salinan dokumen resmi: " + docCode + ".pdf\n(Sistem JDIH Desa Sawah Berhasil Terintegrasi)");
+        }
+
+        // Modal Form Handling
+        function openFormModal(formTitle) {
+            document.getElementById('modal-title').innerText = "Pengajuan: " + formTitle;
+            document.getElementById('form-modal').classList.remove('hidden');
+            document.getElementById('form-modal').classList.add('flex');
+        }
+
+        function closeFormModal() {
+            document.getElementById('form-modal').classList.add('hidden');
+            document.getElementById('form-modal').classList.remove('flex');
+        }
+
+        // Form Submit Simulation
+        function submitEForm(event) {
+            event.preventDefault();
+            alert("Data Berhasil Dikirim!\n\nPermohonan surat digital Anda telah masuk ke berkas Kasi Pelayanan (Ibu Fitri Yati). Silakan datang ke kantor desa besok membawa syarat fotokopi KK.");
+            closeFormModal();
+            event.target.reset();
+        }
+
+        function submitComplaint(event) {
+            event.preventDefault();
+            alert("Laporan Aspirasi Terkirim!\n\nPengaduan Anda berhasil dienkripsi dan masuk ke dalam dasbor sistem admin utama Kepala Desa Sawah (Bpk. Edi Wirnata). Terima kasih atas laporan Anda.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
